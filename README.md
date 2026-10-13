@@ -6,12 +6,14 @@ Aplicación web educativa que convierte expresiones regulares en autómatas fini
 
 ```sh
 pnpm install
-pnpm dev        # servidor de desarrollo en http://localhost:5173
+pnpm dev        # servidor de desarrollo en http://localhost:5173/mcc/automatas
 pnpm test       # pruebas unitarias (Vitest)
 pnpm check      # comprobación de tipos (svelte-check, TypeScript estricto)
 pnpm build      # sitio estático en build/
-pnpm preview    # sirve la compilación de producción
+pnpm preview    # sirve la compilación de producción en http://localhost:4173/mcc/automatas
 ```
+
+La aplicación vive bajo la ruta base `/mcc/automatas` (`paths.base` en `vite.config.ts`). Para publicarla, copia el contenido de `build/` en la carpeta del servidor que corresponda a `/mcc/automatas/` (por ejemplo `<raíz web>/mcc/automatas/`). Si el servidor debe atender rutas desconocidas, configúralo para que responda con `200.html`.
 
 Tecnologías: SvelteKit 3 (Svelte 5), TypeScript estricto, pnpm, Cytoscape.js + dagre para los grafos y Vitest para las pruebas. La aplicación se ejecuta por completo en el navegador (`ssr = false`, adapter-static).
 

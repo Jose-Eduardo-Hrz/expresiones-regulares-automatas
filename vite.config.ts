@@ -6,7 +6,9 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [
 		sveltekit({
-			adapter: adapter({ fallback: '200.html' })
+			adapter: adapter({ fallback: '200.html' }),
+			// La aplicación se publica bajo esta ruta (p. ej. https://servidor/mcc/automatas).
+			paths: { base: '/mcc/automatas' }
 		})
 	],
 	build: {
